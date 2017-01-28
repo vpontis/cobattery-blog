@@ -1,0 +1,30 @@
+{
+  "scripts": {
+    "postinstall": "make build",
+    "start": "make start"
+  },
+  "engines": {
+    "node": "6.3.0",
+    "npm": "3.10.3"
+  },
+  "dependencies": {
+    "babel-cli": "^6.9.0",
+    "babel-plugin-transform-async-to-generator": "^6.8.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.8.0",
+    "concurrently": "^3.1.0",
+    "date-season": "0.0.2",
+    "excerpt-html": "^1.0.1",
+    "gravatar": "^1.5.2",
+    "koa": "^2.0.0",
+    "koa-logger": "^2.0.1",
+    "koa-router": "^7.0.1",
+    "koa-slash": "^0.2.0",
+    "koa-static": "^3.0.0",
+    "koa-views": "^5.2.0",
+    "lodash": "^4.12.0",
+    "moment": "^2.13.0",
+    "mustache": "^2.2.1",
+    "nodemon": "^1.9.2",
+    "popsicle": "^6.2.0"
+  }
+}

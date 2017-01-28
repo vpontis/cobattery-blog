@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+  <head>
+    <title>{{author.name}}</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,300,500,300italic,400italic,500italic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,300italic">
+    <link rel="stylesheet" href="/prism.css">
+    <link rel="stylesheet" href="/index.css">
+  </head>
+  <body>
+
+    <!-- Header -->
+    <header class="header">
+      <div class="author">
+        <img class="author-gravatar" src="{{author.gravatar}}" />
+        <h1 class="author-name">
+          <a class="author-link" href="/">{{author.name}}</a>
+        </h1>
+        <label class="author-bio">{{{author.bio}}}</label>
+        {{#author.twitter}}
+          <div class="author-twitter">
+            <a href="https://twitter.com/{{author.twitter}}" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false"></a>
+            <div class="author-twitter-mask-color"></div>
+            <div class="author-twitter-mask-lighten"></div>
+          </div>
+        {{/author.twitter}}
+      </div>
+    </header>
+
+    <!-- Index -->
+    <main class="main index">
+      <ol class="index-season-list">
+        {{#seasons}}
+        <li>
+          <label class="index-season-name">{{name}}</label>
+          <ol class="index-article-list">
+            {{#articles}}
+            <li>
+              <article class="index-article">
+                <h2 class="index-article-title">
+                  <a class="index-article-link" href="/{{properties.slug}}">{{{properties.name}}}</a>
+                </h2>
+                <p>{{properties.excerpt}}</p>
+              </article>
+            </li>
+            {{/articles}}
+          </ol>
+        </li>
+        {{/seasons}}
+      </ol>
+    </main>
+
+    <!-- Navigation -->
+    <nav class="nav">
+      <div class="nav-mark">
+        <img class="nav-icon" src="/icon.svg" />
+      </div>
+    </nav>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="author">
+        <img class="author-gravatar" src="{{author.gravatar}}" />
+        <h1 class="author-name">
+          <a class="author-link" href="/">{{author.name}}</a>
+        </h1>
+        <label class="author-bio">{{{author.bio}}}</label>
+        {{#author.twitter}}
+          <div class="author-twitter">
+            <a href="https://twitter.com/{{author.twitter}}" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false"></a>
+            <div class="author-twitter-mask-color"></div>
+            <div class="author-twitter-mask-lighten"></div>
+          </div>
+        {{/author.twitter}}
+      </div>
+    </footer>
+
+    <script src="./index.js"></script>
+
+    {{#segment}}
+      <script>
+        !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.0.1";
+          analytics.load('{{segment}}');
+          analytics.page('Home');
+        }}();
+      </script>
+    {{/segment}}
+    {{#author.twitter}}
+      <script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+      </script>
+    {{/author.twitter}}
+  </body>
+</html>
